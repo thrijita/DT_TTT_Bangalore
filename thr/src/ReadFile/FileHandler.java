@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thr;
+package ReadFile;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -20,10 +20,28 @@ public class FileHandler {
   static String  classPath,firstCond,secondCond;
   static String  str,finalData[],withoutHeader[],conditions[];
   
-  static Map<String,Integer> headerObj=new HashMap<String,Integer>();//to print all data with headers
-  static Map<Integer,String> rowdataObj=new TreeMap<>();//to print all row data without headers
+  Map<String,Integer> headerObj=new HashMap<String,Integer>();//to print all data with headers
+  Map<Integer,String> rowdataObj=new TreeMap<>();//to print all row data without headers
   
     
+  /* public void filehandl(String c1)
+    {
+              
+                
+        System.out.println("the obtained path is"+customobject.filepath);
+         try{
+           getdatabyrow();
+        }
+        catch(Exception e)
+        {
+         System.out.println(e);   
+        }
+         headerfilesep();
+         obtainedheaders();
+         rowdata();
+         rowdatas();
+         columndata();
+    }
     public  void filehandler(String classPath,String firstCond,String secondCond)
     {
         this.classPath=classPath;
@@ -133,7 +151,7 @@ public static Map<Integer,String> rowData()
     }
      
     }
+
+
+*/
 }
-
-
-

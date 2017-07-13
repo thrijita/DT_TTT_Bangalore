@@ -3,35 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thr;
+package ReadFile;
 
 /**
  *
  * @author admin
  */
-public class StringParser {
+public class QueryParser {
     
-   static String receivedQuery,queryBreaker[],classPath,firstCond,secondCond,columns;
+    String queryBreaker[],classPath,firstCond,secondCond,columns;
    boolean hasSelect,hasAsterisk,whereExists,groupbyExists,sortbyExists,orderbyExists,byExists,hasSum,hasCount;
-   
+   QueryInput InputObj;
+  String receivedQuery;  
    int queryLength,queryBreakerlength;
    
    //creating object for custom object class
-   CustomObject cusObj=new CustomObject();
+   QueryParameter cusObj=new QueryParameter();
+   FileHandler filehandleObj=new FileHandler();
    
-   public String[] strArray()
+   
+   
+   
+   public QueryParameter parseQuery(String queryString)
+   {
+       
+       QueryParameter queryParameter = new QueryParameter();
+       
+       
+       //parse the queryString
+       //set properties to queryParameter
+       
+       //and return queryParameter
+       return null;
+       
+     
+       
+   }
+ 
+   public String[] stringSplitArray()
     {
-        StringInput InputObj=new StringInput();
+        InputObj=new QueryInput();
         receivedQuery=InputObj.sendQuery();
         queryBreaker=receivedQuery.split(" ");
         queryLength=receivedQuery.length();
+        queryBreakerlength=queryBreaker.length;
         return queryBreaker;
     }
    
     
     public String[] csvParams()
     {
-        for(int i = 0;i<queryBreaker.length;i++)
+        for(int i = 0;i<queryBreakerlength;i++)
         {
             if(queryBreaker[i].contains(".csv"))
             {
@@ -100,15 +122,22 @@ public class StringParser {
         //CustomObject cusObj=new CustomObject(classPath,firstCond,secondCond);
         
        // cusObj.customobject(classPath,firstCond,secondCond);
+        cusObj.setFilepath(classPath);
+        if(executeQuery(receivedQuery))
+        {
+            cusObj.querySplitter(receivedQuery);
+            //filehandleObj.fileHandle(columns);
+            
+        }
         cusObj.display();
-        cusObj.querySplitter(receivedQuery);
+        
         
     }
     public boolean executeQuery(String receivedQuery)
     {
        if(inputQueryChecker(receivedQuery))
         {
-         CustomObject custobj=new CustomObject();
+         QueryParameter custobj=new QueryParameter();
          custobj.querySplitter(receivedQuery);
         
         

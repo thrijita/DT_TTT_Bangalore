@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thr;
+package ReadFile;
 
 import java.util.Scanner;
 
@@ -11,15 +11,16 @@ import java.util.Scanner;
  *
  * @author admin
  */
-public class StringInput {
+public class QueryInput {
 //class to receive the query input from the user
     //-------------------------------------------
     /**
      * @param args the command line arguments
      */
-     static StringParser stringParserObj=new StringParser();
+     QueryParser stringParserObj;
     public String sendQuery()
     {
+        stringParserObj=new QueryParser();
         String inputQuery;
     
         Scanner scannerobj=new Scanner(System.in);
@@ -33,9 +34,9 @@ public class StringInput {
         
         
     public static void main(String[] args) {
-        System.out.println("hi dear project.....!");
-       
-        stringParserObj.strArray();
+       // System.out.println("hi dear project.....!");
+       QueryParser stringParserObj=new QueryParser();
+        stringParserObj.stringSplitArray();
         stringParserObj.csvParams();
         //s1.booleanCheck();
         stringParserObj.sendCSVparams();
